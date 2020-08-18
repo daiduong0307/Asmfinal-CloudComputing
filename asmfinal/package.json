@@ -4,12 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "start": "node app.js",
     "body-parser": "^1.19.0",
     "consolidate": "^0.15.1",
     "express": "^4.17.1",
