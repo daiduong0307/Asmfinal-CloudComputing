@@ -18,7 +18,6 @@ router.post("/doInsert", async (req, res) => {
 
     let client = await MongoClient.connect(url);
     let dbo = client.db("shopToyDB");
-
       res.render("insert", {model : errorModel});
       await dbo.collection("product").insertOne(newToy);
       res.redirect("/");
@@ -50,12 +49,7 @@ router.post("/search", async (req, res) => {
   let dbo = client.db("shopToyDB");
   let result = await dbo
     .collection("product")
-    .find({
-      $or: [
-        { name: new RegExp(search, "i") },
-        { price: new RegExp(search, "i") },
-      ],
-    })
+    .find({name})
     .toArray();
   res.render("all_products", { model: result });
 });
