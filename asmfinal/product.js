@@ -19,14 +19,9 @@ router.post("/doInsert", async (req, res) => {
     let client = await MongoClient.connect(url);
     let dbo = client.db("shopToyDB");
 
-    if(isNaN(inputPrice) || inputName.length > 4){
-      let errorModel = {nameError: "the price must be a number !!!", txtError: "name must be greater than 4" };
       res.render("insert", {model : errorModel});
-    } else
-    {
       await dbo.collection("product").insertOne(newToy);
       res.redirect("/");
-    }
 });
 
 //show all product toys
